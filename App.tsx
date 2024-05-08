@@ -1,12 +1,14 @@
 import "@/styles/global.css"
 
-import * as NavigationBar from 'expo-navigation-bar';
+import { useEffect } from "react"
 
-import { StatusBar } from 'expo-status-bar';
+import * as NavigationBar from "expo-navigation-bar"
 
-import { SignIn } from '@/app/SignIn';
-import { colors } from "@/styles/colors";
-import { useEffect } from "react";
+import { StatusBar } from "expo-status-bar"
+
+import { SignIn } from "@/app/SignIn"
+
+import { colors } from "@/styles/colors"
 
 export default function App() {
   useEffect(() => {
