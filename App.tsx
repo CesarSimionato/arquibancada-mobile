@@ -6,7 +6,7 @@ import * as NavigationBar from "expo-navigation-bar"
 
 import { StatusBar } from "expo-status-bar"
 
-import { SignIn } from "@/app/SignIn"
+import { SignUp } from "@/app/SignUp"
 
 import { colors } from "@/styles/colors"
 
@@ -20,7 +20,7 @@ export default function App() {
 
   return (
     <>
-      <SignIn />
+      <SignUp />
       <StatusBar style="light" />
     </>
   );
