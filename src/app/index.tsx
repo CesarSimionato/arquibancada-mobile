@@ -1,12 +1,14 @@
 import { ImageBackground, Text, View, ScrollView } from "react-native"
 
+import { router } from "expo-router"
+
 import { Input } from "@/components/Input"
 import { Logo } from "@/components/Logo"
 import { Button } from "@/components/Button"
 
-export function SignIn() {
+export default function SignIn() {
   return (
-    <ScrollView className=" bg-primary-900"
+    <ScrollView className="bg-primary-900"
       contentContainerStyle={{
         flexGrow: 1
       }}
@@ -53,7 +55,11 @@ export function SignIn() {
             <View className="items-center gap-2">
               <Text className="text-gray-200">Ainda não tem acesso?</Text>
 
-              <Button label="Criar uma conta" variant="outline" />
+              <Button
+                label="Criar uma conta"
+                variant="outline"
+                onPress={() => router.push("/SignUp")}
+              />
             </View>
           </View>
 

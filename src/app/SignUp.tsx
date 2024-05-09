@@ -1,10 +1,12 @@
 import { ImageBackground, Text, View, ScrollView } from "react-native"
 
+import { router } from "expo-router"
+
 import { Input } from "@/components/Input"
 import { Logo } from "@/components/Logo"
 import { Button } from "@/components/Button"
 
-export function SignUp() {
+export default function SignUp() {
   return (
     <ScrollView className=" bg-primary-900"
       contentContainerStyle={{
@@ -63,7 +65,10 @@ export function SignUp() {
           <View className="gap-5">
             <Button label="Crie sua conta" />
 
-            <Button label="Voltar para o login" variant="outline" />
+            <Button
+              label="Voltar para o login"
+              variant="outline"
+              onPress={router.back} />
           </View>
 
         </View>
