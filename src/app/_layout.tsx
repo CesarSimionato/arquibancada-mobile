@@ -2,35 +2,34 @@ import "@/styles/global.css"
 
 import { useEffect } from "react"
 
-import * as NavigationBar from "expo-navigation-bar"
+import * as SplashScreen from "expo-splash-screen"
 
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { StatusBar } from "expo-status-bar"
 import { Slot } from "expo-router"
 
-import { useFonts, Roboto_400Regular, Roboto_700Bold } from "@expo-google-fonts/roboto"
+import {
+  useFonts,
+  Roboto_400Regular,
+  Roboto_700Bold,
+} from "@expo-google-fonts/roboto"
 
-import { colors } from "@/styles/colors"
-
-import { Loading } from "@/components/Loading"
+SplashScreen.preventAutoHideAsync()
 
 export default function Layout() {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     Roboto_400Regular,
     Roboto_700Bold,
   })
 
   useEffect(() => {
-    const setup = async () => {
-      await NavigationBar.setBackgroundColorAsync(colors.primary[900]);
+    if (fontsLoaded || fontError) {
+      SplashScreen.hideAsync()
     }
-    setup()
-  }, [])
+  }, [fontsLoaded, fontError])
 
-  if (!fontsLoaded) {
-    return (
-      <Loading />
-    )
+  if (!fontsLoaded && !fontError) {
+    return null
   }
 
   return (
@@ -39,4 +38,4 @@ export default function Layout() {
       <Slot />
     </GestureHandlerRootView>
   )
-} 
+}

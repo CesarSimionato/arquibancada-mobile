@@ -8,27 +8,22 @@ import { Button } from "@/components/Button"
 
 export default function SignUp() {
   return (
-    <ScrollView className=" bg-primary-900"
+    <ScrollView
+      className=" bg-primary-900"
       contentContainerStyle={{
-        flexGrow: 1
+        flexGrow: 1,
       }}
-      keyboardShouldPersistTaps='handled'
+      keyboardShouldPersistTaps="handled"
     >
       <ImageBackground
         className="flex-1 w-full h-full"
         source={require("@/assets/banner.png")}
       >
-        <View
-          className="flex-1 justify-center gap-10 p-10"
-        >
+        <View className="flex-1 justify-center gap-10 p-10">
           <Logo />
 
-          <View
-            className="items-center gap-5"
-          >
-            <Text
-              className="text-gray-200 font-bold text-2xl"
-            >
+          <View className="items-center gap-5">
+            <Text className="text-gray-200 font-bold text-2xl">
               Crie sua conta
             </Text>
 
@@ -68,12 +63,11 @@ export default function SignUp() {
             <Button
               label="Voltar para o login"
               variant="outline"
-              onPress={router.back} />
+              onPress={router.back}
+            />
           </View>
-
         </View>
       </ImageBackground>
     </ScrollView>
   )
 }
-
