@@ -3,6 +3,7 @@ import "@/styles/global.css"
 import { useEffect } from "react"
 
 import * as SplashScreen from "expo-splash-screen"
+import * as NavigationBar from "expo-navigation-bar"
 
 import { GestureHandlerRootView } from "react-native-gesture-handler"
 import { StatusBar } from "expo-status-bar"
@@ -13,8 +14,10 @@ import {
   Roboto_400Regular,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto"
+import { colors } from "@/styles/colors"
 
 SplashScreen.preventAutoHideAsync()
+NavigationBar.setBackgroundColorAsync(colors.primary[900])
 
 export default function Layout() {
   const [fontsLoaded, fontError] = useFonts({

@@ -1,3 +1,5 @@
+import { Platform } from "react-native"
+
 import { Tabs } from "expo-router"
 
 import { Ionicons } from "@expo/vector-icons"
@@ -5,12 +7,23 @@ import { Ionicons } from "@expo/vector-icons"
 import { colors } from "@/styles/colors"
 
 export default function TabLayout() {
+  const iconSize = 40
+
   return (
     <Tabs
+      initialRouteName="index"
       screenOptions={{
-        headerShown: false,
+        headerTitleAlign: "center",
+        headerTintColor: colors.gray[200],
+        headerStyle: {
+          backgroundColor: colors.primary[700],
+        },
         tabBarShowLabel: false,
+        tabBarActiveTintColor: colors.primary[500],
+        tabBarInactiveTintColor: colors.gray[300],
         tabBarStyle: {
+          height: 80,
+          borderTopWidth: 0,
           backgroundColor: colors.primary[700],
         },
       }}
@@ -18,8 +31,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <Ionicons name="person-circle-outline" size={size} color={color} />
+          headerTitle: "Perfil",
+          tabBarIcon: ({ color }) => (
+            <Ionicons
+              name="person-circle-outline"
+              size={iconSize}
+              color={color}
+            />
           ),
         }}
       />
@@ -27,8 +45,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <Ionicons name="football-outline" size={size} color={color} />
+          headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="football-outline" size={iconSize} color={color} />
           ),
         }}
       />
@@ -36,8 +55,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="history"
         options={{
-          tabBarIcon: ({ size, color }) => (
-            <Ionicons name="list-circle-outline" size={size} color={color} />
+          headerTitle: "Partidas Cadastradas",
+          tabBarIcon: ({ color }) => (
+            <Ionicons
+              name="list-circle-outline"
+              size={iconSize}
+              color={color}
+            />
           ),
         }}
       />

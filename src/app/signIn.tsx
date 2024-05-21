@@ -45,7 +45,7 @@ export default function SignIn() {
           </View>
 
           <View className="gap-10">
-            <Button label="Acessar" />
+            <Button label="Acessar" onPress={() => router.push("/(tabs)")} />
 
             <View className="items-center gap-2">
               <Text className="text-gray-200">Ainda não tem acesso?</Text>
@@ -53,7 +53,7 @@ export default function SignIn() {
               <Button
                 label="Criar uma conta"
                 variant="outline"
-                onPress={() => router.push("/signIn")}
+                onPress={() => router.push("/signUp")}
               />
             </View>
           </View>
